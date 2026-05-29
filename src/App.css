@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body{
+  background-color: #0a0a0a;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+.App{
+   min-height: 100vh;
+   overflow: hidden;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(130deg, #64c8ff, #00ff88);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ffffff, #64c8ff);
+}
+
+
+/*Animation*/
+
+@keyframes fadeInDown{
+  from{
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInLeft{
+  from{
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes slideInRight{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes fadeInUp{
+    from{
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes scaleUp{
+    from{
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to{
+    opacity: 1;
+    transform: scale(0px);
+  }
 }
 
-.App-link {
-  color: #61dafb;
+/*Utility Classes*/
+
+.section-title{
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
+  color: #FFF;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.section-title span{
+  background:linear-gradient(135deg, #64c8ff, #00ff88);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-underline{
+  width: 80px;
+  height: 4px;
+    background:linear-gradient(135deg, #64c8ff, #00ff88);
+  margin: 0;
+  border-radius: 2px;
+}
+
+@media(max-width: 1200px){
+  .sectionn-title{
+    font-size: 2.5rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media(max-width: 768px){
+  .sectionn-title{
+    font-size: 2rem;
   }
+  body{
+    font-size: 14px;
+  }
+}
+
+
+/*Globale color */
+:root {
+  --primary: #64c8ff;
+  --secondary: #00ff88;
+  --dark: #0a0a0a;
+  --dark-light: #1a1a2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
 }

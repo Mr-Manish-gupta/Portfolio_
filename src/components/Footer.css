@@ -1,0 +1,140 @@
+.footer {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  border-top: 1px solid rgba(100, 200, 255, 0.1);
+  padding: 60px 20px 30px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.footer-section h4 {
+  font-size: 1.1rem;
+  color: #64c8ff;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.footer-section p {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #64c8ff;
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.2), rgba(0, 255, 136, 0.2));
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64c8ff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background: linear-gradient(135deg, #64c8ff, #00ff88);
+  color: #000;
+  border-color: transparent;
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
+  border-top: 1px solid rgba(100, 200, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-bottom p span {
+  color: #ff6b6b;
+}
+
+.scroll-to-top {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #64c8ff, #00ff88);
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(100, 200, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .scroll-to-top {
+    margin: 0 auto;
+  }
+}

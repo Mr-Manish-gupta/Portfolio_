@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-//import { section } from 'framer-motion/client';
+
 
 const About = () =>{
     return(

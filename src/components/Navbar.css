@@ -102,7 +102,7 @@
   padding: 3px 21px;
   justify-content: center;
   border-radius: 20px;
-  width: 80%;
+  width: 60%;
   background: linear-gradient(135deg, #64c8ff, #00ff88);
   color: #000;
   font-weight: 700;
@@ -132,22 +132,39 @@
     transition: all 0.5s ease;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
     gap: 0;
+    border: 2px solid #fff;
+    border-radius: right 0 0 20px 20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    
   }
+
+  
+
+  .navbar-container img{
+   width: 12%;
+   height: 40px;
+   border-radius: 50%;
+    border: none;
+
+  }
+
 
   .nav-menu.active {
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    width: 30%;
   }
 
   .nav-item {
     height: auto;
+    border-radius: 20px;
   }
 
   .nav-links {
-    padding: 2rem;
-    width: 100%;
+    padding: 1rem;
+    width: 20%;
     display: table;
     border-bottom: 1px solid rgba(100, 200, 255, 0.1);
   }
@@ -165,4 +182,6 @@
     font-size: 1.8rem;
     cursor: pointer;
   }
+  
+  
 }

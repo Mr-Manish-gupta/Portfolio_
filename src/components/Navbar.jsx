@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -7,6 +7,15 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
+  
+  useEffect(() => {
+    if(click){
+      const timer = setTimeout(() => {
+        setClick(false);
+      },5000);
+      return () => clearTimeout(timer);
+    }
+  },[click]);
   return (
     <nav className="navbar">
       <div className="navbar-container">

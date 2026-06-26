@@ -31,6 +31,15 @@ const Projects = () => {
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     },
+    {
+      id: 8,
+      title: 'Creator_Hub',
+      description: 'A full-stack creator marketplace for digital product selling, automated licensing, and secure payments built with Spring Boot and React.',
+      technologies: ['Java', 'Spring-Boot', 'React'],
+      status: 'Completed',
+      github: 'https://github.com/Mr-Manish-gupta',
+      live: '#'
+    },
    
     {
       id: 2,

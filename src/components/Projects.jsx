@@ -14,6 +14,25 @@ const Projects = () => {
       live: '#'
     },
     {
+      id: 6,
+      title: 'Collaboration',
+      description: 'Freelanceing platform that provides a learning and real-time working projects and given part time jobs.',
+      technologies: ['Java', 'Spring-Boot', 'React'],
+      status: 'Completed',
+      github: 'https://github.com/Mr-Manish-gupta',
+      live: '#'
+    },
+    {
+      id: 7,
+      title: 'Cloud Share',
+      description: 'Cloud share platform is a tha file share and secure your file , documention, pdf, phote etc. High level secure your data.',
+      technologies: ['Java', 'Spring-Boot', 'React'],
+      status: 'Completed',
+      github: 'https://github.com/Mr-Manish-gupta',
+      live: '#'
+    },
+   
+    {
       id: 2,
       title: 'Currency Converter',
       description: 'Real-time currency conversion tool that provides live exchange rates and converts between different countries.',

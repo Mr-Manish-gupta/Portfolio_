@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import './Projects.css';
 
 const Projects = () => {
@@ -16,7 +17,7 @@ const Projects = () => {
     {
       id: 6,
       title: 'Collaboration',
-      description: 'Freelanceing platform that provides a learning and real-time working projects and given part time jobs.',
+      description: 'Freelancing platform that provides a learning and real-time working projects and given part time jobs.',
       technologies: ['Java', 'Spring-Boot', 'React'],
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
@@ -25,7 +26,7 @@ const Projects = () => {
     {
       id: 7,
       title: 'Cloud Share',
-      description: 'Cloud share platform is a tha file share and secure your file , documention, pdf, phote etc. High level secure your data.',
+      description: 'Cloud share platform is a file share and secure your file, documentation, pdf, photo etc. High level secure your data.',
       technologies: ['Java', 'Spring-Boot', 'React'],
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
@@ -40,7 +41,6 @@ const Projects = () => {
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     },
-   
     {
       id: 2,
       title: 'Currency Converter',
@@ -83,20 +83,62 @@ const Projects = () => {
   const completedProjects = projectsData.filter(p => p.status === 'Completed');
   const inProgressProjects = projectsData.filter(p => p.status === 'In Progress');
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 90, damping: 14 }
+    }
+  };
+
   return (
     <section id="projects" className="projects">
       <div className="projects-container">
-        <div className="projects-header">
+        <motion.div 
+          className="projects-header"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="section-title">Featured <span>Projects</span></h2>
           <div className="title-underline"></div>
-        </div>
+        </motion.div>
 
         {/* Completed Projects */}
         <div className="projects-section">
-          <h3 className="projects-subtitle">Completed Projects</h3>
-          <div className="projects-grid">
-            {completedProjects.map((project, index) => (
-              <div key={project.id} className="project-card" style={{ animationDelay: `${index * 0.1}s` }}>
+          <motion.h3 
+            className="projects-subtitle"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Completed Projects
+          </motion.h3>
+          <motion.div 
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {completedProjects.map((project) => (
+              <motion.div 
+                key={project.id} 
+                className="project-card"
+                variants={cardVariants}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
                 {project.badge && <div className="project-badge">{project.badge}</div>}
                 <div className="project-header">
                   <h3>{project.title}</h3>
@@ -117,17 +159,36 @@ const Projects = () => {
                     </a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* In Progress Projects */}
         <div className="projects-section">
-          <h3 className="projects-subtitle">In Progress</h3>
-          <div className="projects-grid">
-            {inProgressProjects.map((project, index) => (
-              <div key={project.id} className="project-card in-progress" style={{ animationDelay: `${index * 0.1}s` }}>
+          <motion.h3 
+            className="projects-subtitle"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            In Progress
+          </motion.h3>
+          <motion.div 
+            className="projects-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {inProgressProjects.map((project) => (
+              <motion.div 
+                key={project.id} 
+                className="project-card in-progress"
+                variants={cardVariants}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
                 <div className="project-badge in-progress-badge">⏳ In Progress</div>
                 <div className="project-header">
                   <h3>{project.title}</h3>
@@ -143,13 +204,13 @@ const Projects = () => {
                     <FaGithub /> GitHub
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default Projects;

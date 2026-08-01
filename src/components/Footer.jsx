@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section">
           <h3>Manish Gupta</h3>
-          <p>Intermediate Java Full Stack Developer</p>
+          <p>Java Full Stack Developer</p>
         </div>
 
         <div className="footer-section">

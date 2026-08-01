@@ -1,0 +1,65 @@
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.2s, height 0.2s, background-color 0.3s;
+}
+
+.custom-cursor-glow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--primary);
+  background-color: rgba(100, 200, 255, 0.03);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(100, 200, 255, 0.2);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effects */
+.custom-cursor-dot.hovered {
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+}
+
+.custom-cursor-glow.hovered {
+  width: 60px;
+  height: 60px;
+  border-color: var(--accent);
+  background-color: rgba(255, 0, 127, 0.05);
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+}
+
+/* Clicking effect */
+.custom-cursor-dot.clicked {
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.custom-cursor-glow.clicked {
+  transform: translate(-50%, -50%) scale(0.85);
+  background-color: rgba(100, 200, 255, 0.15);
+}
+
+/* Disable default mouse pointer on desktops */
+@media (min-width: 769px) {
+  html, body, a, button, input, textarea, select {
+    cursor: none !important;
+  }
+}
+
+/* Hide on mobile devices */
+@media (max-width: 768px) {
+  .custom-cursor-dot,
+  .custom-cursor-glow {
+    display: none !important;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaJava, FaDatabase, FaTools, FaBook } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import './Skills.css';
 
 const Skills = () => {
@@ -26,17 +27,59 @@ const Skills = () => {
     }
   ];
 
+  const proficiencyData = [
+    { name: 'Java', level: '80%' },
+    { name: 'React', level: '75%' },
+    { name: 'Spring Boot', level: '80%' },
+    { name: 'Databases', level: '85%' }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 80, damping: 12 }
+    }
+  };
+
   return (
     <section id="skills" className="skills">
       <div className="skills-container">
-        <div className="skills-header">
+        <motion.div 
+          className="skills-header"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="section-title">Technical <span>Skills</span></h2>
           <div className="title-underline"></div>
-        </div>
+        </motion.div>
 
-        <div className="skills-grid">
+        <motion.div 
+          className="skills-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {skillsData.map((skillGroup, index) => (
-            <div key={index} className="skill-card" style={{ animationDelay: `${index * 0.1}s` }}>
+            <motion.div 
+              key={index} 
+              className="skill-card"
+              variants={cardVariants}
+              whileHover={{ y: -6, boxShadow: '0 12px 30px rgba(100, 200, 255, 0.25)' }}
+            >
               <div className="skill-icon">
                 {skillGroup.icon}
               </div>
@@ -45,52 +88,40 @@ const Skills = () => {
                 {skillGroup.skills.map((skill, idx) => (
                   <span key={idx} className="skill-tag">
                     {skill}
-                    </span>
+                  </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="proficiency-section">
-          <h3>Proficiency Level</h3>
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Proficiency Level
+          </motion.h3>
           <div className="proficiency-grid">
-            <div className="proficiency-item">
-              <div className="proficiency-header">
-                <span>Java</span>
-                <span>80%</span>
+            {proficiencyData.map((item, index) => (
+              <div key={index} className="proficiency-item">
+                <div className="proficiency-header">
+                  <span>{item.name}</span>
+                  <span>{item.level}</span>
+                </div>
+                <div className="proficiency-bar">
+                  <motion.div 
+                    className="proficiency-fill"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: item.level }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.2, ease: "easeOut", delay: index * 0.1 }}
+                  ></motion.div>
+                </div>
               </div>
-              <div className="proficiency-bar">
-                <div className="proficiency-fill" style={{ width: '80%' }}></div>
-              </div>
-            </div>
-            <div className="proficiency-item">
-              <div className="proficiency-header">
-                <span>React</span>
-                <span>75%</span>
-              </div>
-              <div className="proficiency-bar">
-                <div className="proficiency-fill" style={{ width: '75%' }}></div>
-              </div>
-            </div>
-            <div className="proficiency-item">
-              <div className="proficiency-header">
-                <span>Spring Boot</span>
-                <span>80%</span>
-              </div>
-              <div className="proficiency-bar">
-                <div className="proficiency-fill" style={{ width: '80%' }}></div>
-              </div>
-            </div>
-            <div className="proficiency-item">
-              <div className="proficiency-header">
-                <span>Databases</span>
-                <span>85%</span>
-              </div>
-              <div className="proficiency-bar">
-                <div className="proficiency-fill" style={{ width: '85%' }}></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -98,4 +129,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Skills;

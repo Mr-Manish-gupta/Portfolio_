@@ -29,7 +29,7 @@ const Timeline = () => {
       icon: <FaAward />,
       date: '2025',
       title: 'NeuroNotesAI Hackathon Project',
-      institution: 'Hackathon Award Winner',
+      institution: 'Hackathon Project Build',
       description: 'Co-developed and deployed a fully automated AI platform mapping collegiate syllabus blueprints and intelligent course roadmaps, leveraging React, Spring Boot, and AI integrations.'
     }
   ];

@@ -58,7 +58,7 @@ const Projects = () => {
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#',
-      badge: '🏆 Hackathon Project'
+      badge: '🚀 Hackathon Project'
     },
     {
       id: 4,

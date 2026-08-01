@@ -1,60 +1,42 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Projects.css';
 
 const Projects = () => {
   const projectsData = [
     {
-      id: 1,
-      title: 'Eduford University Website',
-      description: 'A comprehensive university website showcasing college information, courses, admissions, and more.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      status: 'Completed',
-      github: 'https://github.com/Mr-Manish-gupta',
-      live: '#'
-    },
-    {
       id: 6,
-      title: 'Collaboration',
-      description: 'Freelancing platform that provides a learning and real-time working projects and given part time jobs.',
-      technologies: ['Java', 'Spring-Boot', 'React'],
+      title: 'Collaboration Portal',
+      description: 'Engineered a full-stack freelance workspace facilitating secure real-time collaboration, project milestones tracking, and role-based workspace allocation.',
+      technologies: ['Java', 'Spring Boot', 'React.js', 'MySQL'],
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     },
     {
       id: 7,
-      title: 'Cloud Share',
-      description: 'Cloud share platform is a file share and secure your file, documentation, pdf, photo etc. High level secure your data.',
-      technologies: ['Java', 'Spring-Boot', 'React'],
+      title: 'Cloud Share Platform',
+      description: 'Developed a secure file-sharing service implementing data encryption pipelines, automated user quotas, and instant preview tools for PDFs and media.',
+      technologies: ['Java', 'Spring Boot', 'React.js', 'MongoDB', 'REST API'],
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     },
     {
       id: 8,
-      title: 'Creator_Hub',
-      description: 'A full-stack creator marketplace for digital product selling, automated licensing, and secure payments built with Spring Boot and React.',
-      technologies: ['Java', 'Spring-Boot', 'React'],
-      status: 'Completed',
-      github: 'https://github.com/Mr-Manish-gupta',
-      live: '#'
-    },
-    {
-      id: 2,
-      title: 'Currency Converter',
-      description: 'Real-time currency conversion tool that provides live exchange rates and converts between different countries.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'API'],
+      title: 'Creator Hub Marketplace',
+      description: 'Designed a digital product store featuring automatic license key generation, digital product delivery pipelines, and secure order billing integration.',
+      technologies: ['Java', 'Spring Boot', 'React.js', 'PostgreSQL', 'JWT'],
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     },
     {
       id: 3,
-      title: 'NeuroNotesAI',
-      description: 'AI-powered learning platform that provides structured syllabus, course roadmaps, and intelligent learning suggestions.',
-      technologies: ['PowerShell', 'AI System', 'Web Tech'],
+      title: 'NeuroNotesAI Dashboard',
+      description: 'Built an AI-driven educational portal analyzing collegiate syllabi to generate customized learning paths, roadmap timelines, and semantic course search.',
+      technologies: ['React.js', 'Spring Boot', 'Generative AI', 'Tailwind CSS'],
       status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#',
@@ -62,43 +44,52 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Employee Management System',
-      description: 'Backend system for managing employee records, departments, and payroll with role-based access control.',
-      technologies: ['Java', 'Spring Boot', 'MySQL', 'REST API'],
-      status: 'In Progress',
+      title: 'Employee Management ERP',
+      description: 'Engineered an ERP backend module for tracking organizational units, automated payroll schedules, and role-based authorization scopes (RBAC).',
+      technologies: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'Spring Security'],
+      status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     },
     {
       id: 5,
-      title: 'E-Commerce Website',
-      description: 'Full-featured e-commerce platform with product catalog, shopping cart, payment integration, and user management.',
-      technologies: ['Java', 'React', 'Spring Boot', 'MongoDB', 'JWT'],
-      status: 'In Progress',
+      title: 'E-Commerce Web Suite',
+      description: 'Designed a high-throughput storefront featuring catalog caching, transactional shopping cart flows, JWT-secured checkouts, and inventory control panels.',
+      technologies: ['Java', 'React.js', 'Spring Boot', 'MongoDB', 'JWT', 'Spring Security'],
+      status: 'Completed',
       github: 'https://github.com/Mr-Manish-gupta',
       live: '#'
     }
   ];
 
-  const completedProjects = projectsData.filter(p => p.status === 'Completed');
-  const inProgressProjects = projectsData.filter(p => p.status === 'In Progress');
+  const [filter, setFilter] = React.useState('All');
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
+  const filteredProjects = projectsData.filter(project => {
+    if (filter === 'All') return true;
+    if (filter === 'Java') {
+      return project.technologies.some(tech => 
+        tech.toLowerCase().includes('java') || tech.toLowerCase().includes('spring')
+      );
     }
-  };
+    if (filter === 'React') {
+      return project.technologies.some(tech => tech.toLowerCase().includes('react'));
+    }
+    if (filter === 'WebTech') {
+      return project.technologies.some(tech => 
+        ['html', 'css', 'javascript', 'api'].includes(tech.toLowerCase()) && 
+        !tech.toLowerCase().includes('java') && 
+        !tech.toLowerCase().includes('spring')
+      );
+    }
+    return true;
+  });
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring', stiffness: 90, damping: 14 }
-    }
-  };
+  const filterCategories = [
+    { id: 'All', label: 'All Projects' },
+    { id: 'Java', label: 'Java & Spring Boot' },
+    { id: 'React', label: 'React.js' },
+    { id: 'WebTech', label: 'Web UI / API' }
+  ];
 
   return (
     <section id="projects" className="projects">
@@ -114,46 +105,65 @@ const Projects = () => {
           <div className="title-underline"></div>
         </motion.div>
 
-        {/* Completed Projects */}
-        <div className="projects-section">
-          <motion.h3 
-            className="projects-subtitle"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Completed Projects
-          </motion.h3>
-          <motion.div 
-            className="projects-grid"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            {completedProjects.map((project) => (
+        {/* Filter Categories Bar */}
+        <motion.div 
+          className="filter-buttons"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          {filterCategories.map((cat) => (
+            <button
+              key={cat.id}
+              className={`filter-btn ${filter === cat.id ? 'active' : ''}`}
+              onClick={() => setFilter(cat.id)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Project Grid */}
+        <motion.div 
+          layout 
+          className="projects-grid"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
               <motion.div 
+                layout
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 30 }}
+                transition={{ type: "spring", stiffness: 100, damping: 15 }}
                 key={project.id} 
-                className="project-card"
-                variants={cardVariants}
-                whileHover={{ y: -8, scale: 1.02 }}
+                className={`project-card ${project.status === 'In Progress' ? 'in-progress' : ''}`}
+                whileHover={{ y: -8 }}
               >
-                {project.badge && <div className="project-badge">{project.badge}</div>}
+                {project.status === 'In Progress' ? (
+                  <div className="project-badge in-progress-badge">⏳ In Progress</div>
+                ) : (
+                  project.badge && <div className="project-badge">{project.badge}</div>
+                )}
+                
                 <div className="project-header">
                   <h3>{project.title}</h3>
                 </div>
+                
                 <p className="project-description">{project.description}</p>
+                
                 <div className="project-tech">
                   {project.technologies.map((tech, idx) => (
                     <span key={idx} className="tech-tag">{tech}</span>
                   ))}
                 </div>
+                
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
                     <FaGithub /> GitHub
                   </a>
-                  {project.live !== '#' && (
+                  {project.status === 'Completed' && project.live !== '#' && (
                     <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
                       <FaExternalLinkAlt /> Live
                     </a>
@@ -161,56 +171,12 @@ const Projects = () => {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-
-        {/* In Progress Projects */}
-        <div className="projects-section">
-          <motion.h3 
-            className="projects-subtitle"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            In Progress
-          </motion.h3>
-          <motion.div 
-            className="projects-grid"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            {inProgressProjects.map((project) => (
-              <motion.div 
-                key={project.id} 
-                className="project-card in-progress"
-                variants={cardVariants}
-                whileHover={{ y: -8, scale: 1.02 }}
-              >
-                <div className="project-badge in-progress-badge">⏳ In Progress</div>
-                <div className="project-header">
-                  <h3>{project.title}</h3>
-                </div>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tech">
-                  {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                    <FaGithub /> GitHub
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default Projects;
+

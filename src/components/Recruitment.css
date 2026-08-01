@@ -1,0 +1,235 @@
+.recruitment {
+  background: #030308;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.recruitment-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.recruitment-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.recruitment-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-top: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recruitment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.recruitment-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  padding: 35px 25px;
+  border-radius: 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recruitment-card:hover {
+  border-color: rgba(0, 255, 136, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 255, 136, 0.1);
+  transform: translateY(-5px);
+}
+
+.recruitment-card-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
+}
+
+.recruitment-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.recruitment-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Recruitment scorecard */
+.placement-details-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.placement-metrics-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.placement-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+.placement-header-icon {
+  font-size: 1.6rem;
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.3));
+}
+
+.placement-card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+}
+
+.metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 12px;
+  gap: 20px;
+  text-align: left;
+}
+
+.metric-label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  width: 250px;
+}
+
+.metric-value {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.placement-cta-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.placement-btn {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.placement-btn.primary-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #04040a;
+  border: none;
+}
+
+.placement-btn.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(100, 200, 255, 0.35);
+}
+
+.placement-btn.secondary-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.placement-btn.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Media Queries (Mobile & Tablet) */
+@media (max-width: 992px) {
+  .recruitment-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .placement-metrics-card {
+    padding: 30px 20px;
+  }
+
+  .metric-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .metric-label {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .recruitment {
+    padding: 80px 20px;
+  }
+
+  .placement-cta-group {
+    flex-direction: column;
+  }
+
+  .placement-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -53,7 +53,7 @@ const Navbar = () => {
       }
 
       // Viewport Spy
-      const sections = ['home', 'about', 'timeline', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'about', 'timeline', 'skills', 'projects', 'recruitment', 'contact'];
       const scrollPos = window.scrollY + 120;
 
       for (const section of sections) {
@@ -134,6 +134,11 @@ const Navbar = () => {
           <li className="nav-item">
             <a href="#projects" className={`nav-links ${activeSection === 'projects' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Projects
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#recruitment" className={`nav-links ${activeSection === 'recruitment' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Hiring
             </a>
           </li>
           <li className="nav-item">
